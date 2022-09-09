@@ -25,7 +25,10 @@ class UserManager(BaseUserManager, models.Manager):
         user.save(using=self.db)
         return user
 
-    # def create_user:
+    def create_user(self, username, email, full_name, password=None, **extra_fields):
+        self._create_user(
+            username, email, full_name, password, False, False, **extra_fields
+        )
 
     def create_superuser(
         self, username, email, full_name, password=None, **extra_fields

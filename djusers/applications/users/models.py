@@ -14,7 +14,11 @@ class User(AbstractBaseUser, PermissionsMixin):
     gender = models.CharField("género", max_length=1, choices=GENDER_CHOICES, blank=True, null=True)
     age = models.PositiveIntegerField("edad", blank=True, null=True)
     email = models.EmailField("correo electrónico", max_length=254, unique=True)
+    is_staff = models.BooleanField("staff", default=False)
 
     USERNAME_FIELD = "username"
+
+    # para que la terminal nos pida estos datos al crear un superuser
+    REQUIRED_FIELDS = ['email', 'full_name']
 
     objects = UserManager()
