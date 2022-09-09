@@ -15,7 +15,7 @@ def env(key, env=secret):
         raise ImproperlyConfigured(msg)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -37,6 +37,7 @@ DJANGO_APPS = [
 
 LOCAL_APPS = [
     'applications.users',
+    'applications.core',
 ]
 
 THIRD_PARTY_APPS = []
